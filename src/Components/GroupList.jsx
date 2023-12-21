@@ -76,6 +76,22 @@ setGroupList(list)
 },[]);
 //get data from database
 
+//Join Request start
+const handleJoinReq = (item)=>{
+    set(push(ref(db,"groupJoinRequest")),{
+        groupId: item.id,
+        groupName: item.groupName,
+        tagLine: item.tagLine,
+        adminId: item.adminId,
+        adminName : item.adminName,
+        requestId: data.uid,
+        requestName: data.displayName,
+    }).then(()=>{
+        toast.success(`You sent join request to ${item.groupName}`)
+    })
+}
+//Join Request end
+
 
 
 return (
@@ -142,7 +158,7 @@ return (
                 </div>
             </div>
             <div className="btn">
-                <button>join</button>
+                <button onClick={()=>handleJoinReq(item)} >join</button>
             </div>
         </div>
         )

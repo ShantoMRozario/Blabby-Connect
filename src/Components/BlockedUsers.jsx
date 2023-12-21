@@ -16,7 +16,6 @@ const data = useSelector ((state) => state.userLoginInfo.userInfo)
 
 //state
 const [blockList,setBlockList] = useState([])
-console.log(blockList);
 
 //get block user from database
 useEffect(()=>{
