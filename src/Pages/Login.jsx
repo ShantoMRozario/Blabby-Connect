@@ -96,7 +96,7 @@ const Login = () => {
         else if(emailregex.test(email) == false){
             setEmailError('Enter Valid Email')
             }
-        else if(password == ''){
+        else if(password == ''){ 
             setPasswordError('Enter Password')
         }
         else{
