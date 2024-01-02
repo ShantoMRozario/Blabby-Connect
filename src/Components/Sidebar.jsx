@@ -32,7 +32,6 @@ const Sidebar = () => {
 
     //Firebase photo upload
     const storage = getStorage();
-    console.log();
 
     //To get user data from redux store
     const data = useSelector((state)=> state.userLoginInfo.userInfo);
