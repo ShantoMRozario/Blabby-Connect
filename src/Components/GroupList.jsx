@@ -19,7 +19,8 @@ const [groupName, setGroupName] = useState('')
 const [tagLine, setTagLine] = useState('')
 const [loading, setLoading] = useState(false)
 const [groupList, setGroupList] = useState([])
-const [groupJoinReq, setGroupJoinReqList] = useState([])
+const [groupJoinReq, setGroupJoinReq] = useState([])
+
 
 
 
@@ -106,11 +107,12 @@ useEffect(()=>{
             if(data.uid == item.val().requestId){
                 list.push({...item.val(),id:item.key})
             }
-            setGroupJoinReqList(list)
+            setGroupJoinReq(list)
         })
     })
 },[])
 
+console.log(groupJoinReq);
 
 
 return (
