@@ -44,20 +44,6 @@ const handleDeleteMyGroup = (item)=>{
 }
 
 
-//get group join request
-// useEffect(()=>{
-//     const groupJoinRef = ref(db,'groupJoinRequest')
-//     onValue(groupJoinRef,(snapshot)=>{
-//         let list = []
-//         snapshot.forEach((item)=>{
-//             if(data.uid !== item.val().requestId){
-//                 list.push({...item.val(),id:item.key})
-//             }
-//             setGroupJoinReq(list)
-//         })
-//     })
-// },[])
-
 //handle group join reqest
 const handleGroupJoinReq = (group)=>{
     const groupJoinRef = ref(db,'groupJoinRequest')
@@ -102,9 +88,9 @@ const handleGroupJoinReq = (group)=>{
                         return(
 
                         <div key={i} className="main flex items-center justify-between bg-textLightAshColor p-2 my-2">
-                            <div className="user">
-                                <div className="image">
-                                    {/* <span className="font-bold flex justify-center items-center  mt-2">{item.groupName[0] + item.groupName[1] }</span> */}
+                            <div className="user flex items-center gap-3">
+                                <div className="image bg-whiteColor border border-primaryColor w-[50px] h-[50px] rounded-full overflow-hidden">
+                                    <span className="font-bold flex justify-center items-center  mt-2">{group.groupName[0] + group.groupName[1] }</span>
                                 </div>
                                 <div className="info">
                                     <h2 className="text-[18px] capitalize ">{group.requestName}</h2>
