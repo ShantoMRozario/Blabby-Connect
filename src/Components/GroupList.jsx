@@ -107,8 +107,8 @@ useEffect(()=>{
             if(data.uid == item.val().requestId){
                 list.push({...item.val(),id:item.key})
             }
-            setGroupJoinReq(list)
         })
+        setGroupJoinReq(list)
     })
 },[])
 
@@ -180,7 +180,7 @@ return (
             </div>
             <div className="btn">
                 {
-                    groupJoinReq.some((item) => item.requestId === data.uid) ?
+                    groupJoinReq.includes(item.requestId === data.uid) ?
                     <button >Request Sent</button>
                     :
                     <button onClick={()=>handleJoinReq(item)} >join</button>

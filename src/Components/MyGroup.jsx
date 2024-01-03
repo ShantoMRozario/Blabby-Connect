@@ -45,26 +45,40 @@ const handleDeleteMyGroup = (item)=>{
 
 
 //get group join request
-useEffect(()=>{
+// useEffect(()=>{
+//     const groupJoinRef = ref(db,'groupJoinRequest')
+//     onValue(groupJoinRef,(snapshot)=>{
+//         let list = []
+//         snapshot.forEach((item)=>{
+//             if(data.uid !== item.val().requestId){
+//                 list.push({...item.val(),id:item.key})
+//             }
+//             setGroupJoinReq(list)
+//         })
+//     })
+// },[])
+
+//handle group join reqest
+const handleGroupJoinReq = (group)=>{
     const groupJoinRef = ref(db,'groupJoinRequest')
     onValue(groupJoinRef,(snapshot)=>{
         let list = []
         snapshot.forEach((item)=>{
-            if(data.uid !== item.val().requestId){
+            if(data.uid == item.val().adminId && item.val().groupId == group.key){
                 list.push({...item.val(),id:item.key})
             }
-            setGroupJoinReq(list)
         })
+        setGroupJoinReq(list)
     })
-},[])
+}
 
     return (
         <div className="allhomeitems">
         <div className="title">
             <h2>my group : {groupList.length}</h2>
-            <div className="btn">
+            {/* <div className="btn">
                 <button onClick={()=>{setShowGroupReq(!showGroupReq)}} className= "text-sm bg-textBlueColor p-2 flex gap-2 items-center"><TiGroup /> Join Requests</button>
-            </div>
+            </div> */}
         </div>
 
         {/* Group Join Reqests */}
@@ -77,9 +91,16 @@ useEffect(()=>{
 
                <div  className=" mx-auto w-[30%] bg-whiteColor shadow-xl rounded-lg lg:mt-[200px] h-[350px] overflow-y-scroll ">
                         
-                        <h2 className="my-3 text-center text-[14px] lg:text-[16px] font-semibold capitalize mb-5">Create New Group</h2>
-                        
-                    { groupJoinReq.map((item,i)=>{
+                        <h2 className="my-3 text-center text-[14px] lg:text-[16px] font-semibold capitalize mb-5">Group Join Requests</h2>
+
+
+                {
+                    groupJoinReq.length <= 0 ?
+                    <h2 className="text-center capitalize">no request</h2>
+                    :
+                    <>
+                    { 
+                    groupJoinReq.map((item,i)=>{
                         return(
 
                         <div key={i} className="main flex items-center justify-between bg-textLightAshColor p-2 my-2">
@@ -100,7 +121,9 @@ useEffect(()=>{
                         )
                         
                     })} 
-                    </div>
+                    </>  
+                }
+                </div>
             </div>
         }
         
@@ -113,31 +136,32 @@ useEffect(()=>{
 
      <div className="home_item">
         {
-            groupList.map((item)=>{
+            groupList.map((group)=>{
                 return(
-        <div key={item.id} className="content relative">
+        <div key={group.id} className="content relative">
             <>
             <div className="user">
                 <div className="image">
-                    <span className="font-bold flex justify-center items-center  mt-2">{item.groupName[0] + item.groupName[1] }</span>
+                    <span className="font-bold flex justify-center items-center  mt-2">{group.groupName[0] + group.groupName[1] }</span>
                 </div>
                 <div className="info">
-                    <h2>{item.groupName}</h2>
-                    <h3>Admin: {item.adminName}</h3>
+                    <h2>{group.groupName}</h2>
+                    <h3>Admin: {group.adminName}</h3>
                 </div>
             </div>
             <div className="btn flex gap-2">
+                    <button onClick={()=>{handleGroupJoinReq(group),setShowGroupReq(!showGroupReq)}} className= "text-sm bg-textBlueColor p-2 flex gap-2 items-center"><TiGroup /> Join Req</button>
                     <button className="!bg-textBlueColor">Info</button>
-                    <button onClick={()=>{setSelectMyGroup(item)}} className="!bg-redColor">Delete</button>
+                    <button onClick={()=>{setSelectMyGroup(group)}} className="!bg-redColor">Delete</button>
             </div>
             </>
             {
-                selectMyGroup && selectMyGroup.id == item.id &&(
+                selectMyGroup && selectMyGroup.id == group.id &&(
 
                     <div className="popup bg-textOrangeColor absolute right-0 top-0 w-full z-10 h-full text-whiteColor flex items-center justify-between px-2  ">
-                        <h2 className='capitalize'>Delete {item.groupName} ?</h2>
+                        <h2 className='capitalize'>Delete {group.groupName} ?</h2>
                         <div className="btn">
-                            <button onClick={()=>handleDeleteMyGroup(item)} className='!bg-textBlueColor'>Yes</button>
+                            <button onClick={()=>handleDeleteMyGroup(group)} className='!bg-textBlueColor'>Yes</button>
                             <button onClick={()=> setSelectMyGroup(null)} className='!bg-redColor ml-2'>no</button>
                         </div>
                     </div>
