@@ -12,7 +12,7 @@ const MyGroup = () => {
 const db = getDatabase();
 
 //redux Store
-const data = useSelector ((state) => state.userLoginInfo.userInfo)
+const data = useSelector((state) => state.userLoginInfo.userInfo)
 
     const [groupList, setGroupList] = useState([])
     const [selectMyGroup,setSelectMyGroup] = useState('')
