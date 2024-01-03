@@ -38,7 +38,6 @@ useEffect(()=>{
 // Delete group
 const handleDeleteMyGroup = (item)=>{
     remove(ref(db,'groupList/' + item.id))
-    console.log(item);
 }
 
     return (
