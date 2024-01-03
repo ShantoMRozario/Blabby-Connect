@@ -55,8 +55,9 @@ useEffect(()=>{
                     <h3>Admin: {item.adminName}</h3>
                 </div>
             </div>
-            <div className="btn">
-            <p>Today, 8:56pm</p>
+            <div className="btn flex gap-2">
+                    <button className="!bg-textBlueColor">Info</button>
+                    <button className="!bg-redColor">Delete</button>
             </div>
         </div>
 
