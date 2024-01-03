@@ -54,6 +54,7 @@ const handleDeleteMyGroup = (item)=>{
             groupList.map((item)=>{
                 return(
         <div key={item.id} className="content relative">
+            <>
             <div className="user">
                 <div className="image">
                     <span className="font-bold flex justify-center items-center  mt-2">{item.groupName[0] + item.groupName[1] }</span>
@@ -67,6 +68,7 @@ const handleDeleteMyGroup = (item)=>{
                     <button className="!bg-textBlueColor">Info</button>
                     <button onClick={()=>{setSelectMyGroup(item)}} className="!bg-redColor">Delete</button>
             </div>
+            </>
             {
                 selectMyGroup && selectMyGroup.id == item.id &&(
 
