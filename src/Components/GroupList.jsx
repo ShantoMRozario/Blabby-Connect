@@ -185,6 +185,7 @@ return (
                     :
                     <button onClick={()=>handleJoinReq(item)} >join</button>
                 }
+                {/* <button onClick={()=>handleJoinReq(item)} >join</button> */}
             </div>
             
         </div>
