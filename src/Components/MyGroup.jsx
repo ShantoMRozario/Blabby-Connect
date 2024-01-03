@@ -49,6 +49,23 @@ const handleDeleteMyGroup = (item)=>{
                 <button className= "text-sm bg-textBlueColor p-2 flex gap-2 items-center"><TiGroup /> Join Requests</button>
             </div>
         </div>
+
+        {/* Group Join Reqests */}
+
+        <div className="fixed top-0 left-0 bg-whiteColor z-[9999] modal w-full h-screen">
+
+
+                    <div className="form_body mx-auto w-[30%] bg-whiteColor shadow-xl p-2 rounded-lg lg:mt-[200px]">
+                        
+                        <h2 className="my-3 text-center">Create New Group</h2>
+
+                        
+                        
+                    </div>
+                </div>
+
+        {/* Group Join Reqests */}
+
      <div className="home_item">
         {
             groupList.map((item)=>{
