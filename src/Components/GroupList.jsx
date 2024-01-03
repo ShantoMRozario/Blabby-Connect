@@ -91,7 +91,7 @@ const handleJoinReq = (item)=>{
     }).then(()=>{
         toast.success(`You sent join request to ${item.groupName}`)
     })
-    console.log(item.requestId);
+    console.log(item?.requestId);
 
 }
 //Join Request end
