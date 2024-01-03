@@ -148,6 +148,7 @@ return (
         groupList.map((item,i)=>{
         return(
         <div key={i} className="content">
+            <>
             <div className="user">
                 <div className="image">
                 <span className="font-bold flex justify-center items-center mt-2">{item.groupName[0] + item.groupName[1] }</span>
@@ -165,6 +166,7 @@ return (
                     <button >Request Sent</button>
                 }
             </div>
+                </>
         </div>
         )
         })
