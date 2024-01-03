@@ -49,7 +49,7 @@ const handleDeleteMyGroup = (item)=>{
                 <button className= "text-sm bg-textBlueColor p-2 flex gap-2 items-center"><TiGroup /> Join Requests</button>
             </div>
         </div>
-    <div className="home_item">
+     <div className="home_item">
         {
             groupList.map((item)=>{
                 return(
