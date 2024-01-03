@@ -13,6 +13,8 @@ const db = getDatabase();
 //redux Store
 const data = useSelector ((state) => state.userLoginInfo.userInfo)
 
+console.log(data.uid);
+
 const [show, setShow] = useState(false)
 const [groupName, setGroupName] = useState('')
 const [tagLine, setTagLine] = useState('')
@@ -89,6 +91,8 @@ const handleJoinReq = (item)=>{
     }).then(()=>{
         toast.success(`You sent join request to ${item.groupName}`)
     })
+    console.log(item.requestId);
+
 }
 //Join Request end
 
