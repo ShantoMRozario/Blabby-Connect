@@ -158,7 +158,12 @@ return (
                 </div>
             </div>
             <div className="btn">
-                <button onClick={()=>handleJoinReq(item)} >join</button>
+                {
+                    data.uid == item.requestId ?
+                    <button onClick={()=>handleJoinReq(item)} >join</button>
+                    :
+                    <button >Request Sent</button>
+                }
             </div>
         </div>
         )
