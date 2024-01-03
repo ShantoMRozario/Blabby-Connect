@@ -64,7 +64,7 @@ const handleGroupJoinReq = (group)=>{
     onValue(groupJoinRef,(snapshot)=>{
         let list = []
         snapshot.forEach((item)=>{
-            if(data.uid === item.val().adminId && item.val().groupId === group.key){
+            if(data.uid == item.val().adminId && item.val().groupId === group.key){
                 list.push({...item.val(),id:item.key})
             }
         })
