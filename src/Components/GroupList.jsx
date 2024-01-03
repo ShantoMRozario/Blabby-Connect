@@ -92,7 +92,7 @@ const handleJoinReq = (item)=>{
         toast.success(`You sent join request to ${item.groupName}`)
     })
     
-console.log(item?.displayName);
+
 
 }
 //Join Request end
@@ -166,9 +166,9 @@ return (
             <div className="btn">
                 {
                     data.uid == item.requestId ?
-                    <button >Request Sent</button>
-                    :
                     <button onClick={()=>handleJoinReq(item)} >join</button>
+                    :
+                    <button >Request Sent</button>
                 }
             </div>
             
