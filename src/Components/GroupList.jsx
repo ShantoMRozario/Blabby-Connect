@@ -181,7 +181,7 @@ return (
             </div>
             <div className="btn">
                 {
-                    groupJoinReq.includes (item.requestId == data.uid) ?
+                    groupJoinReq.some((item) => item.requestId === data.uid) ?
                     <button >Request Sent</button>
                     :
                     <button onClick={()=>handleJoinReq(item)} >join</button>
