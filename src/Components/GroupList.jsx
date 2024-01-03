@@ -145,9 +145,9 @@ return (
     </div>
     <div className="home_item">
         {
-        groupList.map((item,i)=>{
+        groupList.map((item)=>{
         return(
-        <div key={i} className="content">
+        <div key={item.id} className="content">
             <>
             <div className="user">
                 <div className="image">
