@@ -76,9 +76,7 @@ const handleGroupJoinReq = (group)=>{
         <div className="allhomeitems">
         <div className="title">
             <h2>my group : {groupList.length}</h2>
-            {/* <div className="btn">
-                <button onClick={()=>{setShowGroupReq(!showGroupReq)}} className= "text-sm bg-textBlueColor p-2 flex gap-2 items-center"><TiGroup /> Join Requests</button>
-            </div> */}
+            
         </div>
 
         {/* Group Join Reqests */}
