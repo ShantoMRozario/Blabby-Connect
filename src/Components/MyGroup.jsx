@@ -46,7 +46,7 @@ const handleDeleteMyGroup = (item)=>{
         <div className="title">
             <h2>my group : {groupList.length}</h2>
             <div className="btn">
-                <button className="flex gap-2 items-center"><TiGroup /> Join Requests</button>
+                <button className= "text-sm bg-textBlueColor p-2 flex gap-2 items-center"><TiGroup /> Join Requests</button>
             </div>
         </div>
     <div className="home_item">
