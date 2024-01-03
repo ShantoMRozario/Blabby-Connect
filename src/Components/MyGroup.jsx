@@ -1,6 +1,6 @@
 import { getDatabase, onValue, ref, remove } from "firebase/database";
 import { useEffect, useState } from "react";
-import { BsThreeDotsVertical } from "react-icons/bs";
+import { TiGroup } from "react-icons/ti";
 import { useSelector } from "react-redux";
 
 
@@ -45,9 +45,9 @@ const handleDeleteMyGroup = (item)=>{
         <div className="allhomeitems">
         <div className="title">
             <h2>my group : {groupList.length}</h2>
-            <button>
-                <BsThreeDotsVertical />
-            </button>
+            <div className="btn">
+                <button className="flex gap-2 items-center"><TiGroup /> Join Requests</button>
+            </div>
         </div>
     <div className="home_item">
         {
