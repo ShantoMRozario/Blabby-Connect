@@ -98,7 +98,7 @@ const handleGroupJoinReq = (group)=>{
                     :
                     <>
                     { 
-                    groupJoinReq.map((item,i)=>{
+                    groupJoinReq.map((group,i)=>{
                         return(
 
                         <div key={i} className="main flex items-center justify-between bg-textLightAshColor p-2 my-2">
@@ -107,8 +107,8 @@ const handleGroupJoinReq = (group)=>{
                                     {/* <span className="font-bold flex justify-center items-center  mt-2">{item.groupName[0] + item.groupName[1] }</span> */}
                                 </div>
                                 <div className="info">
-                                    <h2 className="text-[18px] capitalize ">{item.requestName}</h2>
-                                    <h3 className="text-sm text-textAshColorv2 capitalize">group name : {item.groupName}</h3>
+                                    <h2 className="text-[18px] capitalize ">{group.requestName}</h2>
+                                    <h3 className="text-sm text-textAshColorv2 capitalize">group name : {group.groupName}</h3>
                                 </div>
                             </div>
                                     <div className="btn flex gap-2">
