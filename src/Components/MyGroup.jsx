@@ -87,7 +87,7 @@ useEffect(()=>{
                                 </div>
                                 <div className="info">
                                     <h2 className="text-[18px] capitalize ">{item.requestName}</h2>
-                                    <h3 className="text-sm text-textAshColorv2">group</h3>
+                                    <h3 className="text-sm text-textAshColorv2 capitalize">group name : {item.groupName}</h3>
                                 </div>
                             </div>
                                     <div className="btn flex gap-2">
