@@ -1,4 +1,4 @@
-import { getDatabase, onValue, ref } from "firebase/database";
+import { getDatabase, onValue, ref, remove } from "firebase/database";
 import { useEffect, useState } from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { useSelector } from "react-redux";
@@ -13,7 +13,9 @@ const db = getDatabase();
 
 //redux Store
 const data = useSelector ((state) => state.userLoginInfo.userInfo)
+
     const [groupList, setGroupList] = useState([])
+    const [selectMyGroup,setSelectMyGroup] = useState('')
 
 
     //get data from database
@@ -33,6 +35,11 @@ useEffect(()=>{
 },[]);
 //get data from database
 
+// Delete group
+const handleDeleteMyGroup = (item)=>{
+    remove(ref(db,'groupList/' + item.adminId))
+}
+
     return (
         <div className="allhomeitems">
         <div className="title">
@@ -45,7 +52,7 @@ useEffect(()=>{
         {
             groupList.map((item)=>{
                 return(
-        <div key={item.id} className="content">
+        <div key={item.id} className="content relative">
             <div className="user">
                 <div className="image">
                     <span className="font-bold flex justify-center items-center  mt-2">{item.groupName[0] + item.groupName[1] }</span>
@@ -57,8 +64,20 @@ useEffect(()=>{
             </div>
             <div className="btn flex gap-2">
                     <button className="!bg-textBlueColor">Info</button>
-                    <button className="!bg-redColor">Delete</button>
+                    <button onClick={()=>{setSelectMyGroup(item)}} className="!bg-redColor">Delete</button>
             </div>
+            {
+                selectMyGroup && selectMyGroup.id == item.id &&(
+
+                    <div className="popup bg-textOrangeColor absolute right-0 top-0 w-full z-10 h-full text-whiteColor flex items-center justify-between px-2  ">
+                        <h2 className='capitalize'>Delete {item.groupName} ?</h2>
+                        <div className="btn">
+                            <button onClick={()=>handleDeleteMyGroup(item)} className='!bg-textBlueColor'>Yes</button>
+                            <button onClick={()=> setSelectMyGroup(null)} className='!bg-redColor ml-2'>no</button>
+                        </div>
+                    </div>
+                    )
+            }
         </div>
 
                 )
