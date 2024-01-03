@@ -19,6 +19,7 @@ const [groupName, setGroupName] = useState('')
 const [tagLine, setTagLine] = useState('')
 const [loading, setLoading] = useState(false)
 const [groupList, setGroupList] = useState([])
+const [groupJoinReq, setGroupJoinReqList] = useState([])
 
 
 
@@ -96,6 +97,20 @@ const handleJoinReq = (item)=>{
 }
 //Join Request end
 
+//get group join request
+useEffect(()=>{
+    const groupJoinRef = ref(db,'groupJoinRequest')
+    onValue(groupJoinRef,(snapshot)=>{
+        let list = []
+        snapshot.forEach((item)=>{
+            if(data.uid == item.val().requestId){
+                list.push({...item.val(),id:item.key})
+            }
+            setGroupJoinReqList(list)
+        })
+    })
+},[])
+
 
 
 return (
@@ -164,7 +179,7 @@ return (
             </div>
             <div className="btn">
                 {
-                    groupList.includes (data.uid == item.requestId) ?
+                    groupJoinReq.includes (data.uid == item.requestId) ?
                     <button >Request Sent</button>
                     :
                     <button onClick={()=>handleJoinReq(item)} >join</button>
