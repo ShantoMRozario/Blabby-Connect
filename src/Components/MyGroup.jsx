@@ -70,6 +70,7 @@ const handleGroupJoinReq = (group)=>{
         })
         setGroupJoinReq(list)
     })
+    console.log('click');
 }
 
     return (
