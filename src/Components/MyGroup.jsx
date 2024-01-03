@@ -25,7 +25,7 @@ useEffect(()=>{
     onValue(groupRef,(snapshot)=>{
         snapshot.forEach((item)=>{
             if (data.uid == item.val().adminId) {
-                    list.push({...item.val(), id: item.key})
+                    list.push({...item.val(), id:item.key})
                     
                 }   
         })
@@ -37,7 +37,7 @@ useEffect(()=>{
 
 // Delete group
 const handleDeleteMyGroup = (item)=>{
-    remove(ref(db,'groupList/' + item.id))
+    remove(ref(db,'groupList/' + item.key))
     console.log(item);
 }
 
