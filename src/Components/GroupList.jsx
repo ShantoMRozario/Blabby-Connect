@@ -163,12 +163,12 @@ return (
                 </div>
             </div>
             <div className="btn">
-               {
-                item.requestId &&
-            <button >sent</button>
-            }
-            <button onClick={()=>handleJoinReq(item)} >join</button>
-                
+                {
+                    groupList.includes (data.uid == item.requestId) ?
+                    <button >Request Sent</button>
+                    :
+                    <button onClick={()=>handleJoinReq(item)} >join</button>
+                }
             </div>
             
         </div>
