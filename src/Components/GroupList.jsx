@@ -71,6 +71,7 @@ if (data.uid !== item.val().adminId) {
 list.push({...item.val(), id: item.key})
 
 }
+console.log(item?.requestId);
 })
 setGroupList(list)
 })
@@ -91,7 +92,6 @@ const handleJoinReq = (item)=>{
     }).then(()=>{
         toast.success(`You sent join request to ${item.groupName}`)
     })
-    console.log(item?.groupName);
 
 }
 //Join Request end
