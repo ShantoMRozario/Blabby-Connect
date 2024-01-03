@@ -163,8 +163,11 @@ return (
                 </div>
             </div>
             <div className="btn">
-               
-                    <button onClick={()=>handleJoinReq(item)} >join</button>
+               {
+                item.requestId &&
+            <button >sent</button>
+            }
+            <button onClick={()=>handleJoinReq(item)} >join</button>
                 
             </div>
             
