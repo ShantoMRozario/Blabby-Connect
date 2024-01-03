@@ -163,12 +163,9 @@ return (
                 </div>
             </div>
             <div className="btn">
-                {
-                    data.uid == item.requestId ?
-                    <button >Request Sent</button>
-                    :
+               
                     <button onClick={()=>handleJoinReq(item)} >join</button>
-                }
+                
             </div>
             
         </div>
