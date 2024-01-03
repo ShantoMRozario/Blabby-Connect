@@ -112,7 +112,6 @@ useEffect(()=>{
     })
 },[])
 
-console.log(groupJoinReq);
 
 
 return (

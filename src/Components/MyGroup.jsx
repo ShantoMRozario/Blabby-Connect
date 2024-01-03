@@ -15,8 +15,10 @@ const db = getDatabase();
 const data = useSelector((state) => state.userLoginInfo.userInfo)
 
     const [groupList, setGroupList] = useState([])
+    const [groupJoinReq, setGroupJoinReq] = useState([])
     const [selectMyGroup,setSelectMyGroup] = useState('')
-    console.log(groupList);
+    const [showGroupReq, setShowGroupReq] = useState(false)
+    console.log(groupJoinReq);
 
 
     //get data from database
@@ -41,21 +43,40 @@ const handleDeleteMyGroup = (item)=>{
     remove(ref(db,'groupList/' + item.id))
 }
 
+
+//get group join request
+useEffect(()=>{
+    const groupJoinRef = ref(db,'groupJoinRequest')
+    onValue(groupJoinRef,(snapshot)=>{
+        let list = []
+        snapshot.forEach((item)=>{
+            if(data.uid !== item.val().requestId){
+                list.push({...item.val(),id:item.key})
+            }
+            setGroupJoinReq(list)
+        })
+    })
+},[])
+
     return (
         <div className="allhomeitems">
         <div className="title">
             <h2>my group : {groupList.length}</h2>
             <div className="btn">
-                <button className= "text-sm bg-textBlueColor p-2 flex gap-2 items-center"><TiGroup /> Join Requests</button>
+                <button onClick={()=>{setShowGroupReq(!showGroupReq)}} className= "text-sm bg-textBlueColor p-2 flex gap-2 items-center"><TiGroup /> Join Requests</button>
             </div>
         </div>
 
         {/* Group Join Reqests */}
 
-        <div className="fixed top-0 left-0 bg-whiteColor z-[9999] modal w-full h-screen ">
+        {
+            showGroupReq &&
 
-
-                    <div className="form_body mx-auto w-[30%] bg-whiteColor shadow-xl rounded-lg lg:mt-[200px] h-[350px] overflow-y-scroll ">
+            <div className="fixed top-0 left-0 bg-whiteColor z-[9999] modal w-full h-screen ">
+                 <button onClick={()=>{setShowGroupReq(!showGroupReq)}} className= "text-sm bg-redColor text-whiteColor m-5 p-2 flex gap-2 items-center"> Cancel</button>
+           { groupJoinReq.map((item,i)=>{
+                return(
+                    <div key={i} className="form_body mx-auto w-[30%] bg-whiteColor shadow-xl rounded-lg lg:mt-[200px] h-[350px] overflow-y-scroll ">
                         
                         <h2 className="my-3 text-center text-[14px] lg:text-[16px] font-semibold capitalize mb-5">Create New Group</h2>
 
@@ -65,7 +86,7 @@ const handleDeleteMyGroup = (item)=>{
                                     {/* <span className="font-bold flex justify-center items-center  mt-2">{item.groupName[0] + item.groupName[1] }</span> */}
                                 </div>
                                 <div className="info">
-                                    <h2 className="text-[18px] capitalize ">jon</h2>
+                                    <h2 className="text-[18px] capitalize ">{item.requestName}</h2>
                                     <h3 className="text-sm text-textAshColorv2">group</h3>
                                 </div>
                             </div>
@@ -76,7 +97,15 @@ const handleDeleteMyGroup = (item)=>{
                         </div>
                         
                     </div>
-                </div>
+                )
+            })} 
+            </div>
+        }
+        
+
+      
+        
+
 
         {/* Group Join Reqests */}
 
