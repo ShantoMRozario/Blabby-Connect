@@ -18,7 +18,7 @@ const data = useSelector((state) => state.userLoginInfo.userInfo)
     const [groupJoinReq, setGroupJoinReq] = useState([])
     const [selectMyGroup,setSelectMyGroup] = useState('')
     const [showGroupReq, setShowGroupReq] = useState(false)
-    console.log(groupJoinReq);
+
 
 
     //get data from database
@@ -64,7 +64,7 @@ const handleGroupJoinReq = (group)=>{
     onValue(groupJoinRef,(snapshot)=>{
         let list = []
         snapshot.forEach((item)=>{
-            if(data.uid == item.val().adminId && item.val().groupId === group.key){
+            if(data.uid == item.val().adminId && item.val().groupId === group.id){
                 list.push({...item.val(),id:item.key})
             }
         })
