@@ -55,24 +55,24 @@ const handleDeleteMyGroup = (item)=>{
         <div className="fixed top-0 left-0 bg-whiteColor z-[9999] modal w-full h-screen ">
 
 
-                    <div className="form_body mx-auto w-[30%] bg-whiteColor shadow-xl p-[20px] rounded-lg lg:mt-[200px]">
+                    <div className="form_body mx-auto w-[30%] bg-whiteColor shadow-xl rounded-lg lg:mt-[200px] h-[350px] overflow-y-scroll ">
                         
                         <h2 className="my-3 text-center text-[14px] lg:text-[16px] font-semibold capitalize mb-5">Create New Group</h2>
 
-                        <div className="main flex items-center justify-between">
+                        <div className="main flex items-center justify-between bg-textLightAshColor p-2 my-2">
                             <div className="user">
-                            <div className="image">
-                                {/* <span className="font-bold flex justify-center items-center  mt-2">{item.groupName[0] + item.groupName[1] }</span> */}
+                                <div className="image">
+                                    {/* <span className="font-bold flex justify-center items-center  mt-2">{item.groupName[0] + item.groupName[1] }</span> */}
+                                </div>
+                                <div className="info">
+                                    <h2 className="text-[18px] capitalize ">jon</h2>
+                                    <h3 className="text-sm text-textAshColorv2">group</h3>
+                                </div>
                             </div>
-                            <div className="info">
-                                <h2 className="text-[18px] capitalize ">jon</h2>
-                                <h3 className="text-sm text-textAshColorv2">group</h3>
-                            </div>
-                        </div>
-            <div className="btn flex gap-2">
-                    <button className="!bg-textBlueColor px-5 py-2 text-whiteColor">Accept</button>
-                    <button  className="!bg-redColor px-5 py-2 text-whiteColor">Delete</button>
-            </div>
+                                    <div className="btn flex gap-2">
+                                            <button className="!bg-textBlueColor px-5 py-2 text-whiteColor">Accept</button>
+                                            <button  className="!bg-redColor px-5 py-2 text-whiteColor">Delete</button>
+                                    </div>
                         </div>
                         
                     </div>
