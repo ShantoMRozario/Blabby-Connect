@@ -13,7 +13,6 @@ const db = getDatabase();
 //redux Store
 const data = useSelector ((state) => state.userLoginInfo.userInfo)
 
-console.log(data.uid);
 
 const [show, setShow] = useState(false)
 const [groupName, setGroupName] = useState('')
@@ -64,8 +63,8 @@ else{
 //get data from database
 useEffect(()=>{
 const groupRef = ref(db,'groupList')
-let list = []
 onValue(groupRef,(snapshot)=>{
+    let list = []
 snapshot.forEach((item)=>{
 if (data.uid !== item.val().adminId) {
 list.push({...item.val(), id: item.key})

@@ -16,13 +16,14 @@ const data = useSelector((state) => state.userLoginInfo.userInfo)
 
     const [groupList, setGroupList] = useState([])
     const [selectMyGroup,setSelectMyGroup] = useState('')
+    console.log(groupList);
 
 
     //get data from database
 useEffect(()=>{
     const groupRef = ref(db,'groupList')
-    let list = []
     onValue(groupRef,(snapshot)=>{
+        let list = []
         snapshot.forEach((item)=>{
             if (data.uid == item.val().adminId) {
                     list.push({...item.val(), id:item.key})
