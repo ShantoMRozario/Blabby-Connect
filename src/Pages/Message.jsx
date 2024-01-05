@@ -25,7 +25,9 @@ return (
                 </div>
             </div>
         </div>
-        <div className="right h-[900px]  w-[70%] bg-textBlueColor shadow-lg">j</div>
+        <div className="right h-[900px]  w-[70%] bg-textBlueColor shadow-lg">
+            
+        </div>
     </div>
 </div>
 
