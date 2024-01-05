@@ -34,7 +34,7 @@ const Home = () => {
             <div className="item"><MyGroup/></div>
             <div className="item"><BlockedUsers/></div>
            </div>
-        </div>
+        </div> 
     );
 };
 

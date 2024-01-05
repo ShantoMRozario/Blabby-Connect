@@ -7,7 +7,7 @@ import { IoMdSwap } from "react-icons/io";
 import { MdLogout } from "react-icons/md";
 import { getAuth, signOut, updateProfile } from "firebase/auth";
 import { getDownloadURL, getStorage, ref, uploadString } from "firebase/storage";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import {toast} from 'react-toastify'
 import { IoCloudUploadOutline } from "react-icons/io5";
 import { useSelector } from 'react-redux';
@@ -124,22 +124,22 @@ return (
         </div>
         <div className="menu">
             <div className="main_option">
-                <button className="expend_text">
+                <Link to='/' className="expend_text">
                     <IoHomeOutline />
-                    <span className={expend ? '' : 'display_hidden' }>home</span>
-                </button>
-                <button className="expend_text">
+                    <span  className={expend ? '' : 'display_hidden' }>home</span>
+                </Link>
+                <Link to='/message' className="expend_text">
                     <TbMessage2 />
-                    <span className={expend ? '' : 'display_hidden' }>message</span>
-                </button>
-                <button className="expend_text">
+                    <span  className={expend ? '' : 'display_hidden' }>message</span>
+                </Link>
+                <Link to='/notification' className="expend_text">
                     <IoMdNotificationsOutline />
-                    <span className={expend ? '' : 'display_hidden' }>notification</span>
-                </button>
-                <button className="expend_text">
+                    <span  className={expend ? '' : 'display_hidden' }>notification</span>
+                </Link>
+                <Link to='/settings' className="expend_text">
                     <IoSettingsOutline />
-                    <span className={expend ? '' : 'display_hidden' }>settings</span>
-                </button>
+                    <span  className={expend ? '' : 'display_hidden' }>settings</span>
+                </Link>
 
             </div>
             <div className="logout">
