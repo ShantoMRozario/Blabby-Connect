@@ -82,7 +82,8 @@ const Registration = () => {
             .then((userCredential) => {
                 //For updating userprofile
                 updateProfile(auth.currentUser, {
-                    displayName: fullName, photoURL: "/src/assets/images/male-placeholder.png"
+                    displayName: fullName, 
+                    photoURL: "/src/assets/images/male-placeholder.png"
                   })
 
                 //For Database
