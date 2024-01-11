@@ -238,3 +238,10 @@
 }
 /* Profile Pic Upload Modal end */
 
+
+::-webkit-scrollbar{
+  @apply w-1
+}
+::-webkit-scrollbar-thumb{
+  @apply bg-primaryColorv2 rounded-md
+} 
