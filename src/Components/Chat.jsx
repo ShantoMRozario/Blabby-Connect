@@ -56,7 +56,7 @@ const Chat = () => {
                             <ModalImage
                             small='https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg'
                             large="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"
-                            alt="Hello World!"
+                            alt=""
                             />
                         </div>
 
@@ -71,7 +71,7 @@ const Chat = () => {
                         <ModalImage
                             small='https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg'
                             large="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"
-                            alt="Hello World!"
+                            alt=""
                             />
                         </div>
                         <div className="image bg-textOrangeColor w-[50px] h-[50px] rounded-full overflow-hidden border-2 border-primaryColor">
