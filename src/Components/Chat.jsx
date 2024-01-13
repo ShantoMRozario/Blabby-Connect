@@ -20,7 +20,7 @@ const Chat = () => {
                 </div>
             </div>
             {/* Message */}
-            <div className="overflow-y-scroll h-[710px] px-[20px] pt-2 pb-[100px] mb-[500px]">
+            <div className="overflow-y-scroll h-[710px] px-[20px] pt-2 pb-[10px] mb-[500px]">
                  {/*REceived Message  */}
                  <div className="receivetextMain">
                     <div className="receivetext flex gap-4 mb-5">
