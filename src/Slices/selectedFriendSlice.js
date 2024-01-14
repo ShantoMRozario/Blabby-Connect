@@ -8,7 +8,7 @@ export const selectedFriendSlice = createSlice({
     },
     reducers: {
         selectedFriendChat: (state,action) => {
-            state.selected = action.payload
+            state.selectedFriend = action.payload
         }
     },
 });
