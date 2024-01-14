@@ -157,7 +157,7 @@ const Chat = () => {
                         message.length > 0 ?
                         <button  className="py-2 px-[35px] rounded-lg capitalize bg-primaryColor text-whiteColor">send</button>
                         :
-                        <div  className="py-2 px-[35px] rounded-lg capitalize bg-primaryColorv3 text-whiteColor cursor-help">send</div>
+                        <div  className="py-2 px-[35px] rounded-lg capitalize bg-primaryColorv3 text-whiteColor cursor-not-allowed">send</div>
                     }
                     
                 </form>
