@@ -62,7 +62,12 @@ else{
     const handleUnfriend = (item)=>{
         remove(ref(db,"friends/" + item.key))
     }
-// Unfriend Friend end
+// Unfriend Friend end 
+
+//handle Selected Friend
+const handleSelectedFriend = (item)=>{
+    console.log(item);
+}
 
 return (
 <div className="allhomeitems">
@@ -82,7 +87,7 @@ return (
             friendList.map((item,i)=>{
             return(
 
-            <div key={i} className="content">
+            <div onClick={handleSelectedFriend(item)} key={i} className="content cursor-pointer">
                 <div className="user">
                     <ProfilePicFriendReq user={item}></ProfilePicFriendReq>
                     <div className="info">
