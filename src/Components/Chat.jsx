@@ -9,7 +9,7 @@ const Chat = () => {
 
     //redux Store
     // const data = useSelector((state) => state.userLoginInfo.userInfo)
-    const selectedFriend = useSelector((state)=> state.selectedFriendChat.selectedFriend)
+    const selectedFriend = useSelector((state)=> state.selectedFriendInfo.selectedFriend)
 
     console.log(selectedFriend);
 
