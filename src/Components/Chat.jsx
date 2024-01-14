@@ -31,7 +31,8 @@ const Chat = () => {
                 receivedById:selectedFriend.id,
                 receivedByName:selectedFriend.name,
                 message:message,
-                date:`${new Date().getFullYear()} - ${new Date().getMonth() + 1} - ${new Date().getDay()} - ${new Date().getHours() % 12} : ${new Date().getMinutes()}, ${new Date().getHours() > 12 ? 'PM' : 'AM' } `,
+                date: `${new Date().getHours() % 12} : ${new Date().getMinutes()}, ${new Date().getHours() > 12 ? 'PM' : 'AM' }  `,
+                year: `${new Date().getFullYear()} - ${new Date().getMonth() + 1} - ${new Date().getDate()}`,
             })
             .then(()=>{
                 console.log('hoise');
