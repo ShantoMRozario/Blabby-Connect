@@ -5,14 +5,18 @@ import { BsImages } from "react-icons/bs";
 import ModalImage from "react-modal-image";
 import { useSelector } from "react-redux";
 import { useState } from "react";
+import { getDatabase, push, ref, set } from "firebase/database";
 
 const Chat = () => {
 
     //useState: message
     const [message,setMessage] = useState()
 
+    //databse
+    const db = getDatabase()
+
     //redux Store
-    // const data = useSelector((state) => state.userLoginInfo.userInfo)
+    const data = useSelector((state) => state.userLoginInfo.userInfo)
     const selectedFriend = useSelector((state)=> state.selectedFriendInfo.selectedFriend)
 
     
@@ -20,7 +24,22 @@ const Chat = () => {
     //Send Message
     const handleSubmit = (e)=>{
         e.preventDefault()
-        console.log(message);
+        if(selectedFriend?.status == 'selected'){
+            set(push(ref(db,'friendMessage')),{
+                sentById:data.uid,
+                sentByName:data.displayName,
+                receivedById:selectedFriend.id,
+                receivedByName:selectedFriend.name,
+                message:message,
+                date:`${new Date().getFullYear()} - ${new Date().getMonth() + 1} - ${new Date().getDay()} - ${new Date().getHours() % 12} : ${new Date().getMinutes()}, ${new Date().getHours() > 12 ? 'PM' : 'AM' } `,
+            })
+            .then(()=>{
+                console.log('hoise');
+            })
+            .catch((error)=>{
+                console.log(error);
+            })
+        }
     }
 
     return (
