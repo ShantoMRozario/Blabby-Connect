@@ -5,12 +5,16 @@ import { BsImages } from "react-icons/bs";
 import ModalImage from "react-modal-image";
 import { useSelector } from "react-redux";
 import { useState } from "react";
-import { getDatabase, push, ref, set } from "firebase/database";
+import { getDatabase, onValue, push, ref, set } from "firebase/database";
+import { useEffect } from "react";
 
 const Chat = () => {
 
     //useState: message
-    const [message,setMessage] = useState()
+    const [message,setMessage] = useState('')
+    //useState: messageList
+    const [messageList,setMessageList] = useState([])
+    console.log(messageList);
 
     //databse
     const db = getDatabase()
@@ -43,6 +47,25 @@ const Chat = () => {
             })
         }
     }
+     //Send Message
+
+     //Load Sent or Received message
+     useEffect(()=>{
+        onValue(ref(db,'friendMessage'),(snapshot)=>{
+            let list = []
+            snapshot.forEach((item)=>{
+                if(
+                    (item.val().sentById == data.uid && item.val().receivedById == selectedFriend.id) ||
+                    (item.val().sentById == selectedFriend.id && item.val().receivedById == data.uid) 
+                ){
+                    list.push(item.val())
+                }
+            })
+            setMessageList(list)
+        })
+     },[selectedFriend.id])
+     //Load Sent or Received message
+
 
     return (
         <div>
