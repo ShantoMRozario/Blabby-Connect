@@ -10,6 +10,7 @@ const Friends = () => {
 
 //database
 const db = getDatabase()
+
 //redux Store
 const data = useSelector ((state) => state.userLoginInfo.userInfo)
 

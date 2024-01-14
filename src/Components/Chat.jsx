@@ -3,8 +3,16 @@
 import { GoFileDirectory } from "react-icons/go";
 import { BsImages } from "react-icons/bs";
 import ModalImage from "react-modal-image";
+import { useSelector } from "react-redux";
 
 const Chat = () => {
+
+    //redux Store
+    // const data = useSelector((state) => state.userLoginInfo.userInfo)
+    const selectedFriend = useSelector((state)=> state.selectedFriendChat.selectedFriend)
+
+    console.log(selectedFriend);
+
     return (
         <div>
             <div className="">
