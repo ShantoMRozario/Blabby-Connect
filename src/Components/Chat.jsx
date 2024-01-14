@@ -154,10 +154,10 @@ const Chat = () => {
                     <BsImages className="text-[30px] text-primaryColor" />
                 
                     {
-                        message.length > 0?
-                        <div  className="py-2 px-[35px] rounded-lg capitalize bg-primaryColorv2 text-whiteColor">send</div>
+                        message.length > 0 ?
+                        <button  className="py-2 px-[35px] rounded-lg capitalize bg-primaryColor text-whiteColor">send</button>
                         :
-                        <button  className="py-2 px-[35px] rounded-lg capitalize bg-primaryColorv3 text-whiteColor">send</button>
+                        <div  className="py-2 px-[35px] rounded-lg capitalize bg-primaryColorv3 text-whiteColor cursor-help">send</div>
                     }
                     
                 </form>
