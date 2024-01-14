@@ -52,7 +52,7 @@ const Chat = () => {
                         <span className="font-bold flex justify-center items-center  mt-2">G</span>
                     </div>
                     <div className="text">
-                        <h2>{selectedFriend.name }</h2>
+                        <h2>{selectedFriend?.name }</h2>
                         <h5 className="text-sm font-normal">online</h5>
                     </div>
                     
@@ -126,7 +126,7 @@ const Chat = () => {
             {/* send text input and button */}
             <div className="sticky w-full right-0 bottom-[0px] bg-whiteColor  border-t border-textAshColor p-5 ">
                 <form onSubmit={handleSubmit} className="flex items-center justify-between" >
-                    <input onChange={(e)=> setMessage(e.target.value)} className="w-[80%] rounded-lg p-2 border border-primaryColor focus:outline-none" type="text" />
+                    <input onChange={(e)=> setMessage(e.target.value)} className="w-[80%] rounded-lg p-2 border border-primaryColor focus:outline-none" type="text" value={message} />
                     <GoFileDirectory className="text-[30px] text-primaryColor" />
                     <BsImages className="text-[30px] text-primaryColor" />
                     <button  className="py-2 px-[35px] rounded-lg capitalize bg-primaryColorv2 text-whiteColor">send</button>
