@@ -15,13 +15,13 @@ const Chat = () => {
     // const data = useSelector((state) => state.userLoginInfo.userInfo)
     const selectedFriend = useSelector((state)=> state.selectedFriendInfo.selectedFriend)
 
-    console.log(message);
-
-
+    
+    
     //Send Message
-    const handleSendMessage = ()=>[
-
-    ]
+    const handleSubmit = (e)=>{
+        e.preventDefault()
+        console.log(message);
+    }
 
     return (
         <div>
@@ -104,11 +104,11 @@ const Chat = () => {
 
             {/* send text input and button */}
             <div className="sticky w-full right-0 bottom-[0px] bg-whiteColor  border-t border-textAshColor p-5 ">
-                <form className="flex items-center justify-between" >
+                <form onSubmit={handleSubmit} className="flex items-center justify-between" >
                     <input onChange={(e)=> setMessage(e.target.value)} className="w-[80%] rounded-lg p-2 border border-primaryColor focus:outline-none" type="text" />
                     <GoFileDirectory className="text-[30px] text-primaryColor" />
                     <BsImages className="text-[30px] text-primaryColor" />
-                    <button onClick={handleSendMessage} className="py-2 px-[35px] rounded-lg capitalize bg-primaryColorv2 text-whiteColor">send</button>
+                    <button  className="py-2 px-[35px] rounded-lg capitalize bg-primaryColorv2 text-whiteColor">send</button>
                 </form>
             </div>
             {/* send text input and button */}
