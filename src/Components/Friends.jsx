@@ -87,7 +87,7 @@ return (
             friendList.map((item,i)=>{
             return(
 
-            <div onClick={handleSelectedFriend(item)} key={i} className="content cursor-pointer">
+            <div onClick={()=> handleSelectedFriend(item)} key={i} className="content cursor-pointer">
                 <div className="user">
                     <ProfilePicFriendReq user={item}></ProfilePicFriendReq>
                     <div className="info">
