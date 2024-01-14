@@ -36,6 +36,7 @@ const Chat = () => {
             })
             .then(()=>{
                 console.log('hoise');
+                setMessage('')
             })
             .catch((error)=>{
                 console.log(error);
