@@ -8,10 +8,10 @@ export const selectedFriendSlice = createSlice({
     },
     reducers: {
         selectedFriendChat: (state,action) => {
-            state.selectedFriend = action.payload
+            state.selected = action.payload
         }
     },
 });
 
-export const { selectedFriendChat } = selectedFriendSlice.actions
+export const { selectedFriendChat } = selectedFriendSlice.actions;
 export default selectedFriendSlice.reducer
