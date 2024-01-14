@@ -2,7 +2,8 @@ import { getDatabase, onValue, push, ref, remove, set } from "firebase/database"
 import { useState } from "react";
 import { useEffect } from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { selectedFriendChat } from "../Slices/selectedFriendSlice";
 import ProfilePicFriendReq from "./ProfilePicFriendReq";
 
 const Friends = () => {
@@ -11,6 +12,8 @@ const Friends = () => {
 const db = getDatabase()
 //redux Store
 const data = useSelector ((state) => state.userLoginInfo.userInfo)
+
+const dispatch = useDispatch()
 
 //state
 const [friendList,setFriendList] = useState([])
@@ -66,7 +69,15 @@ else{
 
 //handle Selected Friend
 const handleSelectedFriend = (item)=>{
-    console.log(item);
+    
+    if(item.receiverId == data.uid){
+        dispatch(selectedFriendChat({status:'selected',id: item.senderId, name: item.senderName}))
+        localStorage.setItem('selectedFriend',JSON.stringify({status:'selected',id: item.senderId, name: item.senderName}))
+    }
+    else{
+        dispatch(selectedFriendChat({status:'selected',id: item.receiverId, name: item.receiverName}))
+        localStorage.setItem('selectedFriend',JSON.stringify({status:'selected',id: item.receiverId, name: item.receiverName}))
+    }
 }
 
 return (
