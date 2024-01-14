@@ -7,6 +7,6 @@ import userSlice from './Slices/userSlice'
 export default configureStore({
   reducer: {
     userLoginInfo: userSlice,
-    selectedFriendChat :  selectedFriendSlice
+    selectedFriendSlice :  selectedFriendSlice
   },
 })
