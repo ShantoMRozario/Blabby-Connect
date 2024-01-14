@@ -21,7 +21,7 @@ const Chat = () => {
                         <span className="font-bold flex justify-center items-center  mt-2">G</span>
                     </div>
                     <div className="text">
-                        <h2>my group : </h2>
+                        <h2>{selectedFriend.name}</h2>
                         <h5 className="text-sm font-normal">online</h5>
                     </div>
                     
