@@ -152,7 +152,14 @@ const Chat = () => {
                     <input onChange={(e)=> setMessage(e.target.value)} className="w-[80%] rounded-lg p-2 border border-primaryColor focus:outline-none" type="text" value={message} />
                     <GoFileDirectory className="text-[30px] text-primaryColor" />
                     <BsImages className="text-[30px] text-primaryColor" />
-                    <button  className="py-2 px-[35px] rounded-lg capitalize bg-primaryColorv2 text-whiteColor">send</button>
+                
+                    {
+                        message.length > 0?
+                        <button  className="py-2 px-[35px] rounded-lg capitalize bg-primaryColorv2 text-whiteColor">send</button>
+                        :
+                        <button  className="py-2 px-[35px] rounded-lg capitalize bg-primaryColorv3 text-whiteColor">send</button>
+                    }
+                    
                 </form>
             </div>
             {/* send text input and button */}
