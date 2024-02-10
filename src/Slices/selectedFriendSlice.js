@@ -7,11 +7,11 @@ export const selectedFriendSlice = createSlice({
         selectedFriend: localStorage.getItem('selectedFriend')?JSON.parse(localStorage.getItem('selectedFriend')):null
     },
     reducers: {
-        selectedFriendChat: (state,action) => {
+        selectedFriendInfo: (state,action) => {
             state.selectedFriend = action.payload
         }
     },
 });
 
-export const { selectedFriendChat } = selectedFriendSlice.actions;
+export const { selectedFriendInfo } = selectedFriendSlice.actions;
 export default selectedFriendSlice.reducer

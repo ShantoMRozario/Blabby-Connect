@@ -2,7 +2,7 @@ import { getDatabase, onValue, push, ref, remove, set } from 'firebase/database'
 import { useEffect, useState } from 'react';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { useSelector } from 'react-redux';
-import ProfilePicFriendReq from './ProfilePicFriendReq';
+import ProfilePicFriendReq from '../Components/ProfilePicFriendReq';
 
 const FriendRequest = () => {
 

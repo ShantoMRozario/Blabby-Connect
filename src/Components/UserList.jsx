@@ -7,8 +7,7 @@ import { ImBlocked } from "react-icons/im";
 import { FaPlus } from "react-icons/fa6";
 import { IoMdCheckmark } from "react-icons/io";
 import { useSelector } from 'react-redux';
-import ProfilePicture from "./profilePicture";
-import ProfilePicFriendReq from "./ProfilePicFriendReq";
+import ProfilePicture from "../Components/ProfilePicture";
 
 
 const UserList = () => {
@@ -109,7 +108,6 @@ return (
         <div key={item.id} className="content ">
             <div className="user" >
                     <ProfilePicture item={item}></ProfilePicture>
-                    {/* <ProfilePicFriendReq  user={item}></ProfilePicFriendReq> */}
                 
                 <div className="info">
                     <h2>{item.username}</h2>

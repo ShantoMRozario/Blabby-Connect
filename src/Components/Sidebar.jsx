@@ -16,6 +16,7 @@ import { createRef } from 'react';
 import "cropperjs/dist/cropper.css";
 import { Cropper } from 'react-cropper';
 import { userLoginInfo } from "../Slices/userSlice";
+import { selectedFriendInfo } from "../Slices/selectedFriendSlice";
 import { useDispatch } from "react-redux/es/exports";
 
 
@@ -35,6 +36,7 @@ const Sidebar = () => {
 
     //To get user data from redux store
     const data = useSelector((state)=> state.userLoginInfo.userInfo);
+    const selectedFriend = useSelector((state)=> state.selectedFriendInfo.selectedFriend)
    
 
     //Expend sidebar
@@ -46,8 +48,12 @@ const Sidebar = () => {
     //SignOut 
     const handleSignOut = ()=>{
         signOut(auth).then(() => {
-            localStorage.removeItem('user')
+            // localStorage.removeItem('user')
+            // localStorage.removeItem('seletedFriend')
+            localStorage.clear()
             dispatch(userLoginInfo(null))
+            dispatch(selectedFriendInfo(null))
+            
             navigate('/login')
             toast.success('Logout Successfull')
           }).catch((error) => {

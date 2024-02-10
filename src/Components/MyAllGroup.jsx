@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { BsChatSquareText } from "react-icons/bs";
 import { TiGroup } from "react-icons/ti";
 import { useSelector } from "react-redux";
-import ProfilePicFriendReq from "./ProfilePicFriendReq";
-import ProfilePicture from "./profilePicture";
+// import ProfilePicFriendReq from "./ProfilePicFriendReq";
+// import ProfilePicture from "./profilePicture";
 
 
 

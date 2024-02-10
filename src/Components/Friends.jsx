@@ -3,8 +3,9 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-import { selectedFriendChat } from "../Slices/selectedFriendSlice";
-import ProfilePicFriendReq from "./ProfilePicFriendReq";
+import { selectedFriendInfo } from "../Slices/selectedFriendSlice";
+import ProfilePicFriendReq from "../Components/ProfilePicFriendReq";
+import ProfilePicture from "../Components/ProfilePicture";
 
 const Friends = () => {
 
@@ -72,11 +73,11 @@ else{
 const handleSelectedFriend = (item)=>{
     
     if(item.receiverId == data.uid){
-        dispatch(selectedFriendChat({status:'selected',id: item.senderId, name: item.senderName}))
+        dispatch(selectedFriendInfo({status:'selected',id: item.senderId, name: item.senderName}))
         localStorage.setItem('selectedFriend',JSON.stringify({status:'selected',id: item.senderId, name: item.senderName}))
     }
     else{
-        dispatch(selectedFriendChat({status:'selected',id: item.receiverId, name: item.receiverName}))
+        dispatch(selectedFriendInfo({status:'selected',id: item.receiverId, name: item.receiverName}))
         localStorage.setItem('selectedFriend',JSON.stringify({status:'selected',id: item.receiverId, name: item.receiverName}))
     }
 }

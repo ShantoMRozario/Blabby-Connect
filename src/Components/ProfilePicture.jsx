@@ -10,7 +10,7 @@ const ProfilePicture = ({item}) => {
     const storage = getStorage()
     const [image , setImage] = useState('');
 
-    const profilePicRef = ref(storage, item.id)
+    const profilePicRef = ref(storage, item?.id)
 
     useEffect(()=>{
         getDownloadURL(profilePicRef)
@@ -28,7 +28,7 @@ const ProfilePicture = ({item}) => {
                 image?
                 <img src={image} alt="" />  
                 :          
-                <h5 className="flex justify-center leading-10 font-bold capitalize ">{item.username[0]+item.username[1]}</h5>
+                <h5 className="flex justify-center leading-10 font-bold capitalize ">{item?.username[0]+item?.username[1]}</h5>
 
             }
             
